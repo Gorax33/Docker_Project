@@ -1,7 +1,7 @@
 # Docker_Project
 
 ## Prérequis
-echo "Assurez-vous que le port SQL de l'utilisateur soit configuré sur 3302:3302."
+Assurez-vous que le port SQL de l'utilisateur soit configuré sur 3302:3302.
 
 ## Etape 1
 
