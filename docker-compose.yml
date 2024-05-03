@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  gestion-produits-mysql:  
+    build:
+      context: .
+      dockerfile: DockerfileSql
+    container_name: compose-mysql
+    image: image-mysql
+    networks:
+      - pont
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: gestion_produits
+    ports:
+      - "3302:3302"  
+
+  gestion-produits-php:  
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: compose-php
+    image: image-php
+    networks:
+      - pont
+    ports:
+      - "8080:80"  
+    depends_on:
+      - gestion-produits-mysql  
+
+networks:
+  pont:  
+    driver: bridge
